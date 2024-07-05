@@ -1,0 +1,23 @@
+<header>
+    <nav #navbar class="navbar bg-transparent  z-30 fixed left-0 top-0 w-full duration-500">
+        <div class="container_header h-[4.5rem] flex items-center justify-between">
+            <div class="ml-20 w-48 h-full flex items-center"> <!-- Añadimos altura completa al contenedor del logo -->
+                <div class="logo-container">
+                    <a [routerLink]="['/']"><img src="assets/logo.png" alt="logo" class="logo-img"> </a><!-- Ajustamos tamaño del logo -->
+                </div>
+            </div>
+            
+            <div class="flex items-center mr-20 cabezera"> <!-- Agregamos margen a la derecha y alineamos elementos -->
+                <a [routerLink]="['/eres-hotelero']" class="mx-4">¿Eres dueño de un  establecimiento?</a>
+                <a [routerLink]="['/conocenos']"  class="mx-4">Sobre TELOdigo</a>
+                <a [routerLink]="['/centro-de-ayuda']" class="mx-4">Ayuda</a>
+                <div class="ml-8"> <!-- Agregamos margen a la izquierda del botón -->
+                    <div type="button" class="btn_primary py-1.5 hidden md:block custom-button">
+                        Pre-Registro
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+  </header>
+  

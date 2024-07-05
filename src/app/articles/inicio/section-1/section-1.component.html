@@ -1,0 +1,99 @@
+<header>
+  <nav #navbar class="navbar bg-transparent  z-30 fixed left-0 top-0 w-full duration-500">
+      <div class="container_header h-[4.5rem] flex items-center justify-between">
+          <div class="ml-20 w-48 h-full flex items-center"> <!-- Añadimos altura completa al contenedor del logo -->
+              <div class="logo-container">
+                  <a [routerLink]="['/']"><img src="assets/logo.png" alt="logo" class="logo-img"> </a><!-- Ajustamos tamaño del logo -->
+              </div>
+          </div>
+          
+          <div class="flex items-center mr-20 cabezera"> <!-- Agregamos margen a la derecha y alineamos elementos -->
+              <a [routerLink]="['/telos/', 'todos','todas']"  class="mx-4" >Telos</a>
+              <a [routerLink]="['/funciona']" target="_blank" rel="noopener noreferrer"  class="mx-4">¿Como Funciona?</a>
+              <a [routerLink]="['/centro-de-ayuda']" class="mx-4">Ayuda</a>
+              <div class="ml-8"> <!-- Agregamos margen a la izquierda del botón -->
+                  <div type="button" class="btn_primary py-1.5 hidden md:block custom-button" (click)="scrollToBottom()">
+                      Pre-Registro
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+  
+</header>
+
+
+
+<section class="bg-white py-10">
+  <br><br>
+  <div class="container mx-auto px-14">
+      <div class="fondo-i radiu p-6 flex items-center">
+          <div class="text-container">
+              <div class="rectangulo-movido">
+                  <h2 class="text-xl font-bold mb-4 tamano-letter">De Todxs</h2>
+              </div>
+              <div class="texto-simple">
+                  <h2 class="text-xl font-bold mb-4 tamano-letter">y</h2>
+              </div>
+              <div class="rectangulo-movido2">
+                  <h2 class="text-xl font-bold mb-4 tamano-letter">para todxs</h2>
+              </div><br>
+              <div>
+                  <p class="text-p">Busca y reserva habitaciones por horas</p>
+                  <p class="text-p">en tiempo real...</p>
+              </div>
+              <div id="search-bar" class="flex space-x-4 mt-4 unified-input">
+                  <div class="input-icon-wrapper">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <input type="text" placeholder="Buscar departamentos" class="border-none p-2 rounded-l-md pl-10" (input)="filterSuggestions()"  [(ngModel)]="ciudadBuscada">
+                  </div>
+                  <div class="select-icon-wrapper">
+                    <i class="fas fa-tags icon"></i>
+                    <select class="border-none p-2 pl-10 rounded-lg mt-4 bg-gray-100 text-gray-800" [(ngModel)]="categoriaBuscada">
+                      <option disabled selected value="">Categoria</option>
+                      <option *ngFor="let item of tableData" [value]="item.id" [ngValue]="item.nombre" >{{ item.nombre }}</option>
+                    </select>
+                  </div>
+                  <div    *ngIf="filteredSuggestions.length > 0 && ciudadBuscada.trim() !== ''" class="suggestions bg-white shadow-md rounded-b-md absolute left-0 w-full z-10" style="margin-top: 4px;">
+                    <div *ngFor="let suggestion of filteredSuggestions" 
+                         class="suggestion py-2 px-3 cursor-pointer hover:bg-gray-100"
+                         (click)="selectSuggestion(suggestion)">
+                      {{ suggestion.display_name }}
+                    </div>
+                  </div>
+                  <button [routerLink]="['/telos/', ciudadBuscada.toLowerCase().split(', ')[1],categoriaBuscada.toLowerCase()]" class="bg-purple-900 text-white p-2 rounded-r-md">Buscar</button>
+                </div>
+              
+          </div>
+          <div class="w-1/2">
+              <img src="../../../../assets/img/phone-principal.png" alt="Descripción de la Imagen" class="rounded-lg">
+          </div>
+       
+      </div>
+  </div>
+</section>
+
+
+<!-- PRUEBA DE OBTENCION DE DATOS DE SUPABASE
+<section>
+
+
+<div *ngIf="tableData.length > 0; else noData">
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let key of tableData[0] | keyvalue">{{ key.key }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableData">
+        <td *ngFor="let key of row | keyvalue">{{ key.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noData>
+  <p>No data available.</p>
+</ng-template>
+</section>
+-->

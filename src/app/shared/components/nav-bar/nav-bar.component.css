@@ -1,0 +1,80 @@
+ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+
+    li {
+        background-color: lightblue;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}
+a {
+  cursor: pointer;
+}
+
+.custom-button {
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 
+      0 0 3px #511771, /* Sombra interna con el color del borde */
+      0 0 6px #511771, /* Sombra media con el color del borde */
+      0 0 9px #511771, /* Sombra externa con el color del borde */
+      0 0 12px rgba(122, 120, 124, 0.4); /* Sombra exterior fosforescente */
+    background-color: #511771; /* Fondo lila */
+    color: white; /* Color del texto */
+    padding: 5px 24px; /* Espaciado interno */
+    width: auto; /* Ancho automático */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+    font-weight: 300; /* Peso de la fuente (delgada) */
+  }
+  
+  .custom-button:hover {
+    background-color: white; /* Fondo blanco al pasar el cursor */
+    color: black; /* Texto negro al pasar el cursor */
+  }
+
+  .cabezera a{
+    color: black;
+    font-weight: bold;
+  }
+
+  .bg-purple{
+  
+    background-color: #511771;
+}
+
+.bg-purple a{
+  color: white;
+}
+
+.bg-purple .btn_primary{
+  background-color: white;
+  color: #511771;
+  font-weight: bold;
+}
+
+.container_header {
+  height: 4.5rem; /* Ajustamos la altura del header */
+}
+
+.logo-container {
+  width: 4.5rem; /* Igualamos el ancho al alto del header */
+  height: 4.5rem; /* Igualamos el alto al alto del header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem; /* Ajustamos márgenes según tus preferencias */
+  border-radius: 50%; /* Hacemos el contenedor completamente circular */
+  overflow: hidden; /* Ocultamos cualquier contenido que exceda del contenedor circular */
+}
+
+.logo-img {
+  width: 100%; /* Ajustamos el tamaño de la imagen */
+  height: auto; /* Permitimos que la altura se ajuste automáticamente */
+  object-fit: contain; /* Ajustamos la imagen para que quepa completamente dentro del contenedor */
+}
+
+
+

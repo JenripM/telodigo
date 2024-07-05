@@ -1,0 +1,450 @@
+/*MAPAAAAAAAAAAA*/
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+#map {
+    height: 600px;
+    border-radius: 20px;
+    width: 100%;
+    z-index: 0; /* Asegúrate de que el mapa tenga un z-index adecuado */
+    position: relative; /* Añadido para asegurar el posicionamiento relativo */
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+
+    li {
+        background-color: lightblue;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}
+a {
+  cursor: pointer;
+}
+
+.custom-button {
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 
+      0 0 3px #511771, /* Sombra interna con el color del borde */
+      0 0 6px #511771, /* Sombra media con el color del borde */
+      0 0 9px #511771, /* Sombra externa con el color del borde */
+      0 0 12px rgba(122, 120, 124, 0.4); /* Sombra exterior fosforescente */
+    background-color: #511771; /* Fondo lila */
+    color: white; /* Color del texto */
+    padding: 5px 24px; /* Espaciado interno */
+    width: auto; /* Ancho automático */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif; /* Fuente Roboto */
+    font-weight: 300; /* Peso de la fuente (delgada) */
+  }
+  
+  .custom-button:hover {
+    background-color: white; /* Fondo blanco al pasar el cursor */
+    color: black; /* Texto negro al pasar el cursor */
+  }
+
+  .cabezera a{
+    color: black;
+    font-weight: bold;
+  }
+
+  .bg-purple{
+    background-color: #511771;
+}
+
+.bg-purple a{
+  color: white;
+}
+
+.bg-purple .btn_primary{
+  background-color: white;
+  color: #511771;
+  font-weight: bold;
+}
+
+
+
+
+
+.container_header {
+  height: 4.5rem; /* Ajustamos la altura del header */
+}
+
+.logo-container {
+  width: 4.5rem; /* Igualamos el ancho al alto del header */
+  height: 4.5rem; /* Igualamos el alto al alto del header */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem; /* Ajustamos márgenes según tus preferencias */
+  border-radius: 50%; /* Hacemos el contenedor completamente circular */
+  overflow: hidden; /* Ocultamos cualquier contenido que exceda del contenedor circular */
+}
+
+.logo-img {
+  width: 100%; /* Ajustamos el tamaño de la imagen */
+  height: auto; /* Permitimos que la altura se ajuste automáticamente */
+  object-fit: contain; /* Ajustamos la imagen para que quepa completamente dentro del contenedor */
+}
+
+
+
+.unified-input {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #F4F6F5;
+    margin-top: 0px;
+    width: 500px;
+   
+}
+
+.unified-input:focus-within {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.unified-input .input-icon-wrapper,
+.unified-input .select-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 1px;
+}
+
+.unified-input .input-icon-wrapper .icon,
+.unified-input .select-icon-wrapper .icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+.unified-input input,
+.unified-input select {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+    padding-left: 2.5rem;
+    flex: 1;
+    background-color: transparent;
+    font-size: 16px;
+    color: #555;
+    height: 100%; /* Ajusta la altura del input y select */
+}
+
+.unified-input input::placeholder,
+.unified-input select::placeholder {
+    color: #888;
+}
+
+.unified-input button {
+    flex-shrink: 0;
+    padding: 0.5rem 1.8rem;
+    background-color: #5A007A;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.unified-input button:hover {
+    background-color: #410056;
+}
+.filtrado {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.categorias {
+    display: flex;
+    border-radius: 20px;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column; /* Alinear elementos verticalmente */
+    align-items: center;
+    margin: 0 15px;
+    margin-top: 5px;
+}
+
+.categoria span {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.categoria img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.vertical-line {
+    border: none;
+    border-left: 1px solid #ccc; /* Línea vertical */
+    height: 100%; /* Altura igual a la altura de la columna */
+    margin: 0 10px;
+}
+
+
+.contenedor {
+    display: flex;
+    width: 100%;
+}
+
+.categorias2 {
+    flex: 0 0 60%; /* Ocupa el 60% del contenedor */
+    background-color: #f9f9f9; /* Color de fondo opcional */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la barra de desplazamiento en WebKit (Chrome, Safari) */
+.categorias2 {
+    flex: 0 0 60%; /* Ocupa el 60% del contenedor */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite scroll vertical si el contenido excede la altura */
+    max-height: calc(100vh - 20px); /* Ajusta la altura máxima para que no se extienda más allá de la pantalla */
+    position: sticky; /* Mantiene el div pegado mientras se desplaza */
+    top: 20px; /* Ajusta según la altura de cualquier barra superior */
+    z-index: 1; /* Asegura que esté encima del mapa */
+
+    /* Estilo para la barra de desplazamiento en WebKit */
+    scrollbar-color: #511771 #f9f9f9; /* Color de fondo y color del thumb */
+    scrollbar-width: thin; /* Grosor de la barra de desplazamiento */
+}
+
+/* Estilo para el thumb de la barra de desplazamiento en WebKit */
+.categorias2::-webkit-scrollbar-thumb {
+    background-color: #511771; /* Color del thumb */
+    border-radius: 8px; /* Borde redondeado del thumb */
+}
+
+/* Estilo para la barra de desplazamiento en Firefox */
+.categorias2 {
+    scrollbar-width: thin; /* Grosor de la barra de desplazamiento */
+    scrollbar-color: #511771 #f9f9f9; /* Color de fondo y color del thumb */
+}
+
+
+.map-container {
+    flex: 0 0 40%; /* Ocupa el 40% del contenedor */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Hacer que el contenedor sea pegajoso */
+    top: 80px; /* Ajustar según la altura del navbar */
+    height: calc(100vh - 100px); /* Ajustar altura máxima */
+    z-index: 1; /* Asegurar que esté encima del contenido */
+    background-color: white; /* Color de fondo opcional */
+}
+
+/* Estilos para el modal */
+.filtro-precio {
+    max-height: 70vh; /* Altura máxima del modal, ajustable según tus necesidades */
+    overflow-y: auto; /* Habilita el scroll vertical cuando el contenido exceda la altura */
+  }
+  
+  /* Estilos adicionales según tus necesidades */
+  .modal-content {
+    max-height: calc(100vh - 100px); /* Ejemplo: altura máxima ajustada menos el espacio del encabezado */
+  }
+  
+  /* Ajustes específicos para el contenido dentro del modal */
+  .modal-content .mt-2 {
+    margin-top: 1.5rem; /* Margen superior para los elementos internos */
+  }
+
+
+  ::selection{
+    color: #fff;
+    background: #17A2B8;
+  }
+  .wrapper{
+    width: 250px;
+    border-radius: 10px;
+  }
+
+  .price-input{
+    width: 100%;
+    display: flex;
+    margin: 7px 0 8px;
+  }
+
+  .price-input .field{
+    display: flex;
+    width: 100%;
+    height: 25px;
+    align-items: center;
+  }
+  .field input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 14px;
+    margin-left: 12px;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #999;
+    -moz-appearance: textfield;
+  }
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  .price-input .separator{
+    width: 120px;
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    margin-right: -10px;
+  }
+  .slider{
+    height: 5px;
+    position: relative;
+    background: hsl(285, 52%, 66%);
+    border-radius: 5px;
+  }
+  .slider .progress {
+    height: 100%;
+    left: 0%; /* Ajusta el lado izquierdo para centrar */
+    right: 0%; /* Ajusta el lado derecho para centrar */
+    position: absolute;
+    border-radius: 5px;
+    background: hsl(285, 52%, 66%);
+    transition: left 0.2s ease, right 0.2s ease; /* Transición suave para animar los cambios */
+}
+
+
+
+
+  .range-input{
+    position: relative;
+  }
+  .range-input input{
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: -5px;
+    background: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+  input[type="range"]::-webkit-slider-thumb{
+    height: 17px;
+    width: 17px;
+    border-radius: 50%;
+    background: #5a007a;
+    pointer-events: auto;
+    -webkit-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  }
+  input[type="range"]::-moz-range-thumb{
+    height: 17px;
+    width: 17px;
+    border: none;
+    border-radius: 50%;
+    background: #17A2B8;
+    pointer-events: auto;
+    -moz-appearance: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  }
+  .input-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .currency {
+    position: absolute;
+    top: 50%;
+    left: 15px; /* Ajusta el valor según sea necesario */
+    transform: translateY(-50%);
+  }
+  
+  .input-min,
+  .input-max {
+    padding-left: 30px; /* Ajusta el padding para que el número no se solape con el símbolo */
+  }
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel .carousel-inner {
+    display: flex;
+    transition: transform 1s ease;
+    animation: carousel-animation 10s infinite;
+}
+
+.carousel .carousel-item {
+    min-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes carousel-animation {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-200%);
+    }
+
+}
+.suggestions-container {
+  position: absolute;
+  top: calc(100% + 5px); /* Ajusta la distancia vertical desde el input */
+  left: 0;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-height: 250px; /* Ajusta la altura máxima que deseas mostrar */
+  overflow-y: auto; /* Agrega scroll vertical cuando sea necesario */
+  border: 1px solid #ccc; /* Borde opcional para la lista de sugerencias */
+  background-color: #fff; /* Fondo blanco para la lista de sugerencias */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  border-radius: 5px; /* Borde redondeado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.suggestions-container ul {
+  padding: 0;
+  margin: 0; /* Elimina el margen por defecto */
+  width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.suggestions-container li {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #eee; /* Borde inferior entre sugerencias */
+  overflow: hidden; /* Oculta el contenido que desborda */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos al final si el texto es demasiado largo */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  background-color: rgb(62, 10, 62);
+  color: white;
+}
+
+.suggestions-container li:hover {
+  background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse */
+}

@@ -1,0 +1,267 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<app-nav-bar></app-nav-bar>
+
+<div class="my-32 mx-">
+    <div class="  text-center">
+        <h1 class="text-sm md:text-xl lg:text-2xl poppins-light font-semibold">Bienvenido al centro de ayuda</h1>
+    </div>
+
+    <div class="p-4 rounded-lg mx-20 my-10">
+        <div class="mb-4">
+          <h1 class="text-xs md:text-sm lg:text-base  poppins-light">Explora los artículos de ayuda</h1>
+        </div>
+        <div>
+            <div class="relative w-full">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M18.4 10.4a7.4 7.4 0 11-14.8 0 7.4 7.4 0 0114.8 0z" />
+                  </svg>
+                </span>
+                <input type="text" placeholder="Buscar artículos de ayuda" class="w-full pl-10 px-4 py-2 rounded-md border border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+              </div>    
+              
+              
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/guest-male.png" alt="guest-male"/>
+                    <h2 class="text-xl font-bold text-gray-800">Cuenta</h2>
+                   
+                  </div>
+                  
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo cambiar tu nombre, correo electrónico, y otros detalles.')">Actualizar información de cuenta</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Instrucciones para restablecer o actualizar tu contraseña.')">Cambiar contraseña</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Pasos para desactivar o eliminar permanentemente tu cuenta.')">Eliminar cuenta</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Proceso y documentación necesaria para la verificación de identidad.')">Verificar identidad</a></p>
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="modal-background fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center" (click)="closeModalOutside($event)">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Administración de Cuenta</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                    
+                  </div>
+                </div> 
+                
+                <!-- Card 2 -->
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="50" height="50" src="https://img.icons8.com/ios/50/5-star-hotel--v2.png" alt="5-star-hotel--v2"/>
+                    <h2 class="text-xl font-bold text-gray-800">Reservas</h2>
+                  </div>
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Guía paso a paso para reservar un alojamiento.')">Cómo hacer una reserva</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cambiar fechas o detalles de una reserva existente.')">Modificar una reserva</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Políticas y procedimientos para cancelar una reserva.')">Cancelar una reserva</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Acceso a tus reservas pasadas y futuras.')">Revisar historial de reservas</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo comunicarte con el anfitrión antes y durante tu estancia.')">Mensajes con el anfitrión</a></p>
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center" (click)="closeModalOutside($event)">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Gestión de Reservas</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                    
+                  </div>
+                </div>
+                
+
+                <!-- Card 3 -->
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="80" height="80" src="https://img.icons8.com/dotty/80/card-in-use-1.png" alt="card-in-use-1"/>
+                    <h2 class="text-xl font-bold text-gray-800">Pagos</h2>
+                  </div>
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Tipos de pagos que puedes usar (tarjetas de crédito, YAPE, etc.).')">Métodos de pago aceptados</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Proceso para solicitar un reembolso por una cancelación o problema.')">Solicitar un reembolso</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Ayuda para resolver errores comunes en los pagos.')">Solución de problemas de pago</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo ver y descargar tu historial de transacciones.')">Historial de pago</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Medidas para proteger tu información financiera.')">Seguridad de pagos</a></p>
+
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center" (click)="closeModalOutside($event)">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Detalle del Enlace3</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                   
+                  </div>
+                </div>
+                
+
+                <!-- Card 4 -->
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/lock-2.png" alt="lock-2"/>
+                    <h2 class="text-xl font-bold text-gray-800">Seguridad</h2>
+                  </div>
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Recomendaciones para mantenerte seguro durante tu viaje.')">Consejos de seguridad para hoteleros</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo informar sobre problemas o incidentes durante tu estancia.')">Reportar un problema de seguridad</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Reglas y regulaciones para garantizar la seguridad de todos los usuarios.')">Políticas de seguridad del sitio</a></p>
+                    
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Detalle del Enlace4</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                    
+                  </div>
+                </div>
+                
+                
+                <!-- Card 5  -->
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/data-protection.png" alt="data-protection"/>
+                    <h2 class="text-xl font-bold text-gray-800">Privacidad</h2>
+                  </div>
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Detalles sobre cómo se manejan y protegen tus datos personales.')">Política de privacidad</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo ajustar tus preferencias de privacidad en el sitio.')">Configuración de privacidad</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Información sobre con quién compartimos tus datos y por qué')">Datos compartidos con terceros</a></p>
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Detalle del Enlace5</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                    
+                  </div>
+                </div>
+                
+                <!-- Card 6 -->
+
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border">
+                  <div class="p-6 mx-5 border-b flex items-center">
+                    <img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/technical-support-wearing-glasses.png" alt="technical-support-wearing-glasses"/>
+                    <h2 class="text-xl font-bold text-gray-800">Soporte Técnico</h2>
+                  </div>
+                  <div class="p-6">
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Cómo ponerte en contacto con el equipo de soporte técnico de TELOdigo.')">Contacto con soporte</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Información sobre mantenimientos y actualizaciones del sitio.')">Actualizaciones del sistema</a></p>
+                    <p><a  class="hover:underline cursor-pointer" (click)="showModal('Tutoriales para navegar y usar las funciones del sitio eficientemente.')">Guías de uso del sitio</a></p>
+                  </div>
+                </div>
+                
+                <!-- Modal -->
+                <div *ngIf="isModalVisible" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                  <div class="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full">
+                    <div class="flex justify-between items-center mb-4">
+                      <!-- <h2 class="text-xl font-bold text-gray-800">Detalle del Enlace6</h2> -->
+                      <button (click)="closeModal()" class="text-gray-600 hover:text-gray-800">&times;</button>
+                    </div>
+                    <p class="text-gray-600">{{ modalContent }}</p>
+                  
+                  </div>
+                </div>
+                
+
+            </div>
+    </div>
+
+    
+</div>
+
+<!-- 
+<div class="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
+    <div class="w-full max-w-2xl shadow-md rounded-lg overflow-hidden">
+      <div class="bg-white p-6">
+        <h1 class="text-2xl font-bold text-gray-800">Explore Help Articles</h1>
+        <div class="mt-4">
+          <input type="text" placeholder="Search Help Articles" class="w-full px-4 py-2 rounded-md border focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50">
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <div class="w-full md:w-1/3 p-4">
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14c0 1.105-1.105 2-2.495 2h-1.505V18a2 2 0 11-4 0v-3.505H4.495A2 2 0 114 12h1.505v-2.5A2 2 0 119.505 7H11.505a2 2 0 114 0h1.505z" />
+              </svg>
+              <h2 class="ml-2 text-xl font-bold text-gray-800">Account</h2>
+            </div>
+            <ul class="list-disc pl-5 text-gray-700">
+              <li><a href="#" class="hover:underline">Correct or update your account information</a></li>
+              <li><a href="#" class="hover:underline">Changes to your account</a></li>
+              <li><a href="#" class="hover:underline">Unsubscribe from marketing emails, SMS and push notifications</a></li>
+            </ul>
+            <div class="mt-4">
+              <button class="px-4 py-2 rounded-md bg-blue-500 text-white font-bold hover:bg-blue-600">More</button>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4">
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V5a2 2 0 00-2-2H6a2 2 0 00-2 2v3m12 0v3" />
+              </svg>
+              <h2 class="ml-2 text-xl font-bold text-gray-800">Privacy</h2>
+            </div>
+            <ul class="list-disc pl-5 text-gray-700">
+              <li><a href="#" class="hover:underline">Correct or update your account information</a></li>
+              <li><a href="#" class="hover:underline">Information about your privacy</a></li>
+              <li><a href="#" class="hover:underline">What privacy and data subject rights are available?</a></li>
+            </ul>
+            <div class="mt-4">
+              <button class="px-4 py-2 rounded-md bg-blue-500 text-white font-bold hover:bg-blue-600">More</button>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-4">
+          <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V5a2 2 0 00-2-2H6a2 2 0 00-2 2v3m12 0v3" />
+              </svg>
+              <h2 class="ml-2 text-xl font-bold text-gray-800">Security</h2>
+            </div>
+            <ul class="list-disc pl-5 text-gray-700">
+              <li><a href="#" class="hover:underline">Payment security and options</a></li>
+              <li><a href="#" class="hover:underline">About weapons at a property</a></li>
+              <li><a href="#" class="hover:underline">Report a concern about a Vrbo property</a></li>
+            </ul>
+            <div class="mt-4">
+              <button class="px-4 py-2 rounded-md bg-blue-500 text-white font-bold hover:bg-blue-600">More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

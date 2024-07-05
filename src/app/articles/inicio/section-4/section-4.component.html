@@ -1,0 +1,146 @@
+<div class="container">
+    <div>
+      <h2 class="text-ini">Te Recomendamos</h2>
+      <h1 class="text-telo">Lo Mejor de lo Mejor</h1><br>
+    </div>
+    <div class="tabs">
+      <button class="tab-link" [class.active]="selectedCity === 'Lima'" (click)="showCity('Lima')">Lima</button>
+      <button class="tab-link" [class.active]="selectedCity === 'Trujillo'" (click)="showCity('Trujillo')">Trujillo</button>
+      <button class="tab-link" [class.active]="selectedCity === 'Chiclayo'" (click)="showCity('Chiclayo')">Chiclayo</button>
+      <button class="tab-link" [class.active]="selectedCity === 'Piura'" (click)="showCity('Piura')">Piura</button>
+    </div>
+    <div *ngIf="selectedCity === 'Lima'" class="tab-content">
+      <div class="city-container">
+        <div class="card">
+          <img src="../../../../assets/img/hot-1.jpg" alt="Lima 1">
+          <div class="card-info">
+            <h3>Hotel 1</h3>
+            <p>Descripción del hotel en Lima.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../../../../assets/img/hot-1.jpg" alt="Lima 2">
+          <div class="card-info">
+            <h3>Hotel 2</h3>
+            <p>Descripción del hotel en Lima.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../../../../assets/img/hot-1.jpg" alt="Lima 3">
+          <div class="card-info">
+            <h3>Hotel 3</h3>
+            <p>Descripción del hotel en Lima.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../../../../assets/img/hot-1.jpg" alt="Lima 4">
+          <div class="card-info">
+            <h3>Hotel 4</h3>
+            <p>Descripción del hotel en Lima.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedCity === 'Trujillo'" class="tab-content">
+        <div class="city-container">
+          <div class="card">
+            <img src="../../../../assets/img/hot-2.jpg" alt="Lima 1">
+            <div class="card-info">
+              <h3>Hotel 1</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-2.jpg" alt="Lima 2">
+            <div class="card-info">
+              <h3>Hotel 2</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-2.jpg" alt="Lima 3">
+            <div class="card-info">
+              <h3>Hotel 3</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-2.jpg" alt="Lima 4">
+            <div class="card-info">
+              <h3>Hotel 4</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div *ngIf="selectedCity === 'Chiclayo'" class="tab-content">
+        <div class="city-container">
+          <div class="card">
+            <img src="../../../../assets/img/hot-3.jpg" alt="Lima 1">
+            <div class="card-info">
+              <h3>Hotel 1</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-3.jpg" alt="Lima 2">
+            <div class="card-info">
+              <h3>Hotel 2</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-3.jpg" alt="Lima 3">
+            <div class="card-info">
+              <h3>Hotel 3</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-3.jpg" alt="Lima 4">
+            <div class="card-info">
+              <h3>Hotel 4</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div *ngIf="selectedCity === 'Piura'" class="tab-content">
+        <div class="city-container">
+          <div class="card">
+            <img src="../../../../assets/img/hot-4.jpg" alt="Lima 1">
+            <div class="card-info">
+              <h3>Hotel 1</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-4.jpg" alt="Lima 2">
+            <div class="card-info">
+              <h3>Hotel 2</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-4.jpg" alt="Lima 3">
+            <div class="card-info">
+              <h3>Hotel 3</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="../../../../assets/img/hot-4.jpg" alt="Lima 4">
+            <div class="card-info">
+              <h3>Hotel 4</h3>
+              <p>Descripción del hotel en Lima.</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div>
+        <div class="container-button">
+            <a href="" class="button-central">Ver Mas...</a>
+        </div>
+    </div>
+  </div>
+  

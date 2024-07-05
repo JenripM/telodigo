@@ -1,0 +1,33 @@
+.logo-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Ajusta el tamaño del contenedor del logo */
+    height: 150px;
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden; /* Recorta cualquier contenido que se desborde */
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+.custom-div {
+    background: linear-gradient(to bottom right, #631c88, #9d4edd);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.vertical-image {
+    width: auto;
+    height: 100%;
+    max-height: 300px; /* Ajusta según sea necesario */
+    border-radius: 15px 0 0 15px;
+    z-index: 2;
+    position: relative;
+}

@@ -1,0 +1,20 @@
+.logo-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Ajusta el tamaño del contenedor del logo */
+    height: 150px;
+    border-radius: 50%; /* Forma circular */
+    overflow: hidden; /* Recorta cualquier contenido que se desborde */
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.logo-container a{
+    cursor: pointer;
+}

@@ -1,0 +1,23 @@
+section {
+    display: flex;
+    justify-content: space-around; /* Espacio entre los elementos */
+    align-items: flex-start; /* Alinea los elementos al principio del contenedor */
+    gap: 90px; /* Espacio entre los divs */
+    padding: 50px;
+    background-color: #511771;
+}
+section div {
+    display: flex;
+    flex-direction: column; /* Coloca la imagen encima del texto */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto dentro de cada div */
+}
+section img {
+    width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+}
+section p {
+    margin-top: 10px; /* Espacio entre la imagen y el texto */
+    font-weight: bold;
+    color: white;
+}

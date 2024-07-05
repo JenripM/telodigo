@@ -1,0 +1,48 @@
+
+
+.text-ini{
+    color: purple;
+    font-weight: bolder;
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.text-telo{
+    font-weight: bolder;
+    font-size: 65px;
+    margin-left: 10px;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 70px; /* Añade un padding de 70px a ambos lados */
+}
+
+
+
+.beneficios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.beneficio {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: calc(25% - 20px); /* Ajustar el ancho de las tarjetas */
+    box-sizing: border-box;
+}
+
+.beneficio h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.beneficio p {
+    font-size: 1em;
+    color: #666;
+}

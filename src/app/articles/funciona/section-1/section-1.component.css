@@ -1,0 +1,87 @@
+.container{
+    margin-top: -20px;
+}
+h1{
+    font-size: 64px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 80px;
+    color: #511771;
+}
+
+h2{
+    font-size: 25px;
+    margin-top: 30px;
+    font-weight: bold;
+
+    margin-left: 80px;
+
+}
+.pasos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.paso {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+    padding: 20px;
+    width: calc(25% - 20px); /* Ajustar el ancho de las tarjetas */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+    background-color: #5d1a80;
+    
+}
+
+.paso:hover {
+    transform: translateY(-5px); /* Elevar la tarjeta al pasar el ratón por encima */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Aumentar la sombra al pasar el ratón por encima */
+}
+
+
+
+.pasos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 60px; /* Espacio entre los elementos */
+    margin-top: 40px;
+    margin-left: 180px;
+    margin-right: 280px;
+}
+.pasos div {
+    flex: 1; /* Permite que los elementos ocupen el mismo espacio */
+    text-align: center;
+}
+
+.pasos p{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pasos-2 p{
+    margin-top: 20px;
+    font-weight: bold;
+
+    font-size: 18px;
+    margin-left: 180px;
+    position: relative; /* Necesario para que ::before funcione correctamente */
+    padding-left: 50px; /* Espacio para la flecha */
+}
+
+
+.pasos-2 p::before {
+    content: "➔"; /* Unicode para una flecha */
+    position: absolute;
+    left: 0; /* Posición de la flecha */
+    top: 50%;
+    transform: translateY(-50%); /* Centra la flecha verticalmente */
+    font-size: 1.5em; /* Tamaño de la flecha */
+    color: #511771; /* Color de la flecha */
+}
+.pasos-2 a {
+    color: #511771; /* Color del enlace */
+}

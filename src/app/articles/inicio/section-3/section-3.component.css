@@ -1,0 +1,103 @@
+
+
+
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+#map {
+    height: 600px;
+    border-radius: 20px;
+    width: 50%;
+    z-index: 0; /* Asegúrate de que el mapa tenga un z-index adecuado */
+    position: relative; /* Añadido para asegurar el posicionamiento relativo */
+}
+.banner-section {
+    position: relative;
+    height: 300px; /* Ajusta la altura según sea necesario */
+    background: url('../../../../assets/img/banner-1.jpg') no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centra el texto horizontalmente */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Color blanco semitransparente */
+  }
+  
+  .banner-text {
+    position: relative;
+  }
+  
+  .slide-in-text {
+    font-size: 5em;
+    font-weight: bold;
+    color: purple;
+    white-space: nowrap;
+    overflow: hidden; /* Para evitar que el texto se desplace fuera del contenedor */
+    animation-duration: 18s; /* Duración de la animación */
+    animation-timing-function: linear; /* Función de temporización lineal */
+    animation-iteration-count: infinite; /* Repetición infinita */
+    animation-direction: alternate; /* Dirección de ida y vuelta */
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation-name: slide-text-top-left;
+  }
+  
+  .center {
+    animation-name: slide-text-center;
+  }
+  
+  .bottom-right {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    animation-name: slide-text-bottom-right;
+  }
+  
+  @keyframes slide-text-top-left {
+    0% {
+      transform: translateX(-75%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes slide-text-center {
+    0% {
+      transform: translateX(100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes slide-text-bottom-right {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
